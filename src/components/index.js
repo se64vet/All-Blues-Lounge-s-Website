@@ -1,0 +1,5 @@
+export {default as Navbar} from './Navbar/Navbar'
+export {default as HomePage} from './HomePage/HomePage'
+export {default as MenuPage} from './MenuPage/MenuPage'
+export {default as Contact} from './Contact/Contact'
+export {default as Footer} from './Footer/Footer'
