@@ -1,6 +1,6 @@
 import './App.css';
-import {Navbar, HomePage, MenuPage, Contact, Footer} from './components'
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import {Navbar, HomePage, MenuPage, ContactPage, EventPage, Footer} from './components'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import {createTheme, ThemeProvider} from '@material-ui/core/styles'
 
 function App() {
@@ -21,13 +21,14 @@ function App() {
         secondary: {
           main: "#000",
         },
+
       }
   });
   return (
     <Router>
       <ThemeProvider theme={theme}>
 
-      <Navbar />
+      <Navbar/>
 
       <Switch>
 
@@ -40,7 +41,15 @@ function App() {
         </Route>
 
         <Route exact path="/Contact"> 
-            <Contact />
+            <ContactPage />
+        </Route>
+
+        <Route exact path="/Event"> 
+            <EventPage />
+        </Route>
+
+        <Route path="/*"> 
+            <HomePage />
         </Route>
 
       </Switch>

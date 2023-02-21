@@ -1,5 +1,5 @@
 import React from 'react'
-import { Typography, Button, Grid, Box } from '@material-ui/core';
+import { Typography, Grid } from '@material-ui/core';
 import useStyle from "./styles"
 const Contact = () => {
     const classes = useStyle()
@@ -24,13 +24,14 @@ const Contact = () => {
                     <Typography variant="body1" gutterTop>
                         Hi, my Name is Dante and I really appreciate if you want to work with me. You can always send me a message at Email: 
                          <a href="email: dante.mai96@gmail.com"  style={{color: 'orange'}}>dante.mai96@gmail.com</a> or Phone:  
-                         <a href="tel: 865 347 9654" style={{color: 'orange'}}>865 345 9653</a>
+                         <a href="tel: 865 347 9654" style={{color: 'orange'}}>865 347 9653</a>
                     </Typography>
                 </Grid>
                 
                 <Grid item xs={12} md={4} className={classes.mapouter}>
                 <div className={classes.gmap_canvas}>
                     <iframe 
+                    title='map'
                     width="600" 
                     height="500" 
                     id="gmap_canvas" 

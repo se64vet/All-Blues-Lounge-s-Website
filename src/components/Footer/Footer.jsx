@@ -17,7 +17,7 @@ const Footer = () => {
         <footer>
             <Grid container className={classes.footerGrid}>
                 <Grid item xs={12} md={4}>
-                    <Typography variant='h6'>ALL BLUES</Typography>
+                    <Typography variant='h6'>BLUES LOUNGE</Typography>
                     <Hidden smDown>
                         <Typography variant='caption'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ducimus qui quae consequatur. Id, voluptatibus.</Typography>
                     </Hidden>    

@@ -1,19 +1,17 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom';
 import { Typography, Button, Grid, Box } from '@material-ui/core';
-import { spacing } from '@material-ui/system';
 import HomeCarousel from './HomeCarousel/HomeCarousel';
 import Card from './Card/Card';
-
-
 import useStyles from './styles'
-const HomePage = ({onAddToCart}) => {
+
+const HomePage = () => {
     const classes = useStyles();
    
     return (
         
         <>  
-            <HomeCarousel typoDisplayTitle='ALL BLUES LOUNGE' typoDisplayButton='Est. 1996'/>
+            <HomeCarousel typoDisplayTitle='BLUES LOUNGE' typoDisplayButton='Est. 1996'/>
            
             <Box mt="2rem">
             <Grid container justifyContent='center' alignItems='center' spacing={10} direction="column">
@@ -26,10 +24,12 @@ const HomePage = ({onAddToCart}) => {
 
                 <Card
                 imgName='6' title='reserve a table' 
-                desc="We're looking to have you here with our best services" button='booking' />
+                desc="We're looking to have you here with our best services" 
+                button='booking' 
+                link="https://bl-reservation.netlify.app/" isExternalLink={true}/>
                 
                 <Grid item xs={12} style={{position: 'relative'}}>
-                    <Typography variant='h6' align='center' className={classes.absoluteCenter}>
+                    <Typography variant='h6' align='center' style={{padding: "0 1rem"}}>
                         " The night is getting better with this place " <br/> -Dante-
                     </Typography>
                     <img className={classes.img} 
@@ -37,20 +37,20 @@ const HomePage = ({onAddToCart}) => {
                     height='300px' width='100%'  alt="divider" />
                 </Grid>
 
-                <Card 
-                imgName='4' title='our events' desc='Check out our music event every week' 
-                button='see all' direction='row-reverse' />
-
                 <Grid item xs={12} style={{position: 'relative'}}>
-                    <img className={classes.img} 
+                    {/* <img className={classes.img} 
                     src={process.env.PUBLIC_URL + 'assets/divider2.jpg'} 
                     height='300px' width='100%'  alt="divider" />
-                    
-                    <Button component={Link} to="/Menu" className={classes.absoluteCenter} variant='contained' color='primary'>
-                        CHECK OUT OUR MENU
+                     */}
+                    <Button component={Link} to="/Menu" className={classes.drinkMenuBtn} variant='contained' color='secondary'>
+                       Drinks Menu
                     </Button>
+
                 </Grid>
-                
+
+                <Card 
+                imgName='4' title='our events' desc='Check out our music event every week' 
+                button='see all' direction='row-reverse' link='/Event' isExternalLink={false}/>
             </Grid>
             </Box>
             

@@ -1,7 +1,6 @@
 import React from 'react'
-import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
-import "react-responsive-carousel/lib/styles/carousel copy.css";
+import "react-responsive-carousel/lib/styles/carousel.css";
 import { Carousel } from 'react-responsive-carousel';
 import { Typography, Button,Grid  } from '@material-ui/core';
 import useStyles from './styles'
@@ -11,7 +10,7 @@ const HomeCarousel = ({typoDisplayTitle, typoDisplayButton}) => {
     const carouselImgs = [1,2,3,4,5,6]
     const carouselItems = carouselImgs.map((carouselImg) =>
         <div key={carouselImg.toString()} style={{height: '100vh'}}>
-            <img src={process.env.PUBLIC_URL + `/assets/carousel/${carouselImg}.jpg`} />
+            <img src={process.env.PUBLIC_URL + `/assets/carousel/${carouselImg}.jpg`} alt="thumbnail"  className={classes.fluidImg}/>
         </div>
     
     )

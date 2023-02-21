@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react'
+import React  from 'react'
 import myjson from '../../data.json'
-import { Typography, Button, Grid, Box } from '@material-ui/core';
+import { Typography, Grid} from '@material-ui/core';
 import useStyle from './styles'
 const MenuPage = () => {
     const classes = useStyle();
@@ -8,7 +8,6 @@ const MenuPage = () => {
     const classic = datajson["classic-drinks"]
     const noAlcohol = datajson["alcohol-free"]
     const cocktails = datajson["cocktails"]
-    console.log(classic)
     return (
         <>
             <Grid container justifyContent='center' alignItems='center' spacing={10} direction="column" >
@@ -70,10 +69,6 @@ const MenuPage = () => {
                 </Grid>
             </Grid>
             
-
-           {/* {data && data.length>0 && data.map((item) => 
-               <div>{item.name}</div>
-           )} */}
         </>
     )
 }

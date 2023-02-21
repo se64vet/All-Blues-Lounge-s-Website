@@ -1,39 +1,25 @@
 import React, {useState} from 'react'
-import { Link, useLocation } from 'react-router-dom';
-import { AppBar, Toolbar, IconButton, Badge, List, ListItem, ListItemText, Typography, Drawer } from '@material-ui/core';
-import { ShoppingCart, Close } from '@material-ui/icons';
-import clsx from 'clsx';
-// import logo from '../../../../public/assets/logo1200.png'
+import { Link } from 'react-router-dom';
+import { AppBar, Toolbar, IconButton, List, ListItem, ListItemText, Typography, Drawer } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import useStyles from './styles';
 
-const MobileNavbar = ({totalItems}) => {
+const MobileNavbar = ({navItems, leadText, configUrl}) => {
     const classes = useStyles();
-    // const location = useLocation();
     const [leftDraw, setLeftDraw] = useState(false);
 
-    const toggleDrawer = (open) => (event) => {
-        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-            return;
-          }
-        setLeftDraw(open)
-    }
     const list = ()=>(
-        <div className={classes.list} role="presentattion" onClick={toggleDrawer(false)} onKeyDown={toggleDrawer(false)}>
+        <div className={classes.list} role="presentation" >
             <List>
                     <ListItem component={Link} to="/" >
-                        <Typography variant='h6' color='primary' >ALL BLUES</Typography>
+                        <Typography variant='h6' color='primary'>{leadText.toUpperCase()}</Typography>
                     </ListItem>
-                    <ListItem className={classes.listItem} component={Link} to="/">
-                        <ListItemText primary='Home'/>
+                    {navItems.map((item, idx)=>(
+                    <ListItem key={idx} className={classes.listItem} component={Link} to={configUrl(item.link)} target={item.isExternal ? "_blank" : "_self"}>
+                        <ListItemText primary={item.name}/>
                     </ListItem>
-                    <ListItem className={classes.listItem} component={Link} to="/Menu">
-                        <ListItemText primary='Menu'/>
-                    </ListItem>
-                    <ListItem className={classes.listItem} component={Link} to="/Contact">
-                        <ListItemText primary='Contact'/>
-                    </ListItem>
-                </List>
+                    ))}
+            </List>
         </div>
     )
     return (
@@ -45,32 +31,19 @@ const MobileNavbar = ({totalItems}) => {
                 edge="start" 
                 className={classes.menuButton} 
                 color="inherit" aria-label="menu"
-                onClick={toggleDrawer(true)} >
-                    <MenuIcon />
+                onClick={()=>setLeftDraw(true)} >
+                <MenuIcon />
                 </IconButton>
                 <Drawer 
-                anchor="top" 
+                anchor="left" 
                 open = {leftDraw} 
-                onClose={toggleDrawer( false)}>
+                onClose={()=>setLeftDraw(false)}>
                 {list()}
-                
                 </Drawer>
-
                 </React.Fragment>
                 
             </div>
 
-            
-
-            {/* {location.pathname === "/" && (
-            <div className={classes.button}> 
-                <IconButton component={Link} to="/cart" aria-label="Show cart items" color="inherit">
-                    <Badge badgeContent={totalItems} color="secondary">
-                        <ShoppingCart />
-                    </Badge>
-                </IconButton>
-            </div>
-            )} */}
         </Toolbar>
     </AppBar>
     )

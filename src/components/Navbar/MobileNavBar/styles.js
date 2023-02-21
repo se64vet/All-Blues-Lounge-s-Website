@@ -1,4 +1,4 @@
-import { makeStyles, fade } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
 const drawerWidth = 0;
 
@@ -31,7 +31,9 @@ export default makeStyles((theme) => ({
     flexGrow: 1,
   },
   list: {
+    padding: "1em",
     width: '100%',
+    height: '100%',
     background: '#000'
   },
   listItem: {

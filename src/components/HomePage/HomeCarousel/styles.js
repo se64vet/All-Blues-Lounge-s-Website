@@ -18,6 +18,11 @@ export default makeStyles((theme) => ({
     padding: '20px',
     textAlign: 'center',
   },
+  fluidImg:{
+    width: "100%",
+    height: "100%",
+    objectFit: "cover"
+  },
   button: {
     "&:hover": {
         background: "#ffe8d6",  

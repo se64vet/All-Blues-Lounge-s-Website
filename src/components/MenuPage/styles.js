@@ -30,7 +30,8 @@ export default makeStyles((theme) => ({
   
   img: {
     width: '100%',
+    aspectRatio: "4/1",
     objectFit: 'cover',
-    objectPosition: 'center',
+    objectPosition: 'bottom',
   },
 }));
